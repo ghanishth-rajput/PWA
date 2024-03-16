@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Offline Document Storage</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Enter Document Details</h2>
+            <form id="documentForm">
+                <label for="documentType">Select Document Type:</label>
+                <select id="documentType" name="documentType" required>
+                    <option value="">Select Document Type</option>
+                    <option value="aadhaar">Aadhaar Card</option>
+                    <option value="drivingLicense">Driving License</option>
+                    <option value="panCard">PAN Card</option>
+                    
+                    <!-- Add more document types as needed -->
+                </select>
+
+                <div id="documentFields" style="display: none;">
+                    <!-- Dynamically populated fields will be displayed here -->
+                </div>
+
+                
+            </form>
+        </section>
+        <section>
+            <h2>Saved Document Details</h2>
+            <div id="savedDetails">
+                <table id="savedDetailsTable">
+                    <thead>
+                        <tr>
+                            <th>Document Type</th>
+                            <th>Document Number</th>
+                            <th>Action</th>
+                            <!-- Add more table headings if needed -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--shfshbshbs-->
+                    <tbody>
+                    </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Offline Document Storage</p>
+    </footer>
+    <!-- Include any necessary JavaScript files -->
+    <script src="app.js"></script>
+</body>
+</html>
