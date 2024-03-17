@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item {
+    display: grid; /* Change to grid */
+    grid-template-rows: auto auto auto; /* Adjust the number of rows as needed */
+    border: 1px solid #dddddd;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
