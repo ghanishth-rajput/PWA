@@ -9,7 +9,7 @@
 </head>
 <body>
    
-    <header>
+    <header class="footer">
         <h1>Offline Document Storage</h1>
     </header>
     <main>
@@ -17,7 +17,7 @@
             <h2>Enter Document Details</h2>
             <form id="documentForm">
                 <label for="documentType">Select Document Type:</label>
-                <select id="documentType" name="documentType" required>
+                <select class="form" id="documentType" name="documentType" required>
                     <option value="">Select Document Type</option>
                     <option value="aadhaar">Aadhaar Card</option>
                     <option value="drivingLicense">Driving License</option>
@@ -25,10 +25,9 @@
                     
                     
                 </select>
+                <div id="documentFields" style="display: none"></div>
+            <button type="submit" id="saveButton"  class="save-btn">Save Details</button>
 
-                <div id="documentFields" style="display: none;">
-                    
-                </div>
 
                 
             </form>
@@ -38,7 +37,7 @@
            
         </section>
     </main>
-    <div class="container">
+    <div class="container" style="display: none">
         <div class="item">Document Type</div>
         <div class="item">Document Number</div>
         <div class="item">Action</div>
@@ -46,7 +45,7 @@
     </div>
     
     
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Offline Document Storage</p>
     </footer>
     

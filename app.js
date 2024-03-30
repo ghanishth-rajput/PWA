@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         documentForm.reset();
         selectedRow = null;
+        
+        container.style.display = "block";
     });
 
     documentTypeSelect.addEventListener("change", function() {
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (selectedDocumentType === "aadhaar") {
             documentFieldsHTML = `
+            <div class='formContainer' id='aadhar'>
                 <label for="documentNumber">Aadhaar Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
                 <label for="aadhaarName">Name:</label>
@@ -57,10 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <input type="date" id="aadhaarDOB" name="aadhaarDOB" required>
                 <label for="aadhaarAddress">Address:</label>
                 <textarea id="aadhaarAddress" name="aadhaarAddress" required></textarea>
-                <button type="submit">Save Details</button>
+                
             `;
         } else if (selectedDocumentType === "drivingLicense") {
             documentFieldsHTML = `
+            <div class='formContainer' id='driver'>
                 <label for="documentNumber">Driving License Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
                 <label for="licenseName">Name:</label>
@@ -69,10 +73,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <input type="date" id="DOB" name="DOB" required>
                 <label for="expiry">Date of Expiry:</label>
                 <input type="date" id="DOE" name="DOE" required>
-                <button type="submit">Save Details</button>
+                
             `;
         } else if (selectedDocumentType === "panCard") {
             documentFieldsHTML = `
+            <div class='formContainer' id='pan'>
                 <label for="documentNumber">PAN Card Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
                 <label for="PanName">Name:</label>
@@ -84,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <option value="MALE">MALE</option>
                     <option value="FEMALE">FEMALE</option>
                 </select>
-                <button type="submit">Save Details</button>
+                
             `;
         }
 
@@ -92,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         documentFieldsDiv.innerHTML = documentFieldsHTML;
         documentFieldsDiv.style.display = "block";
     });
+
     container.addEventListener("click", function(event) {
         if (event.target.classList.contains("delete-btn")) {
             let item = event.target.closest(".item");
