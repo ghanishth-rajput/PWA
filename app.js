@@ -10,19 +10,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let selectedDocumentType = documentTypeSelect.value;
         let documentNumberInput = document.querySelector("#documentNumber");
+        let holdingPersonNameInput = document.querySelector("#holdingPersonName");
 
         let documentNumber = documentNumberInput.value;
+        let holdingPersonName = holdingPersonNameInput.value;
 
         if (selectedRow) {
             let cells = selectedRow.children;
             cells[0].innerText = `Document type: ${selectedDocumentType}`;
             cells[1].innerText = `Document number: ${documentNumber}`;
+            cells[2].innerText = `Holding Person's Name: ${holdingPersonName}`;
         } else {
             let newEntry = document.createElement("div");
             newEntry.classList.add("item");
             newEntry.innerHTML = `
                 <div> Document type: ${selectedDocumentType}</div>
                 <div> Document number: ${documentNumber}</div>
+                <div> Holding Person's Name: ${holdingPersonName}</div>
                 <div>
                     Action:
                     <button class="view-btn" type="button">View</button>
@@ -41,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     documentTypeSelect.addEventListener("change", function() {
-        var selectedDocumentType = this.value;
+        let selectedDocumentType = this.value;
         var documentFieldsHTML = "";
 
         if (selectedDocumentType === "aadhaar") {
@@ -49,8 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class='formContainer' id='aadhar'>
                 <label for="documentNumber">Aadhaar Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="aadhaarName">Name:</label>
-                <input type="text" id="aadhaarName" name="aadhaarName" required>
+                <label for="holdingPersonName">Name:</label>
+                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="MALE">MALE</option>
@@ -67,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class='formContainer' id='driver'>
                 <label for="documentNumber">Driving License Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="licenseName">Name:</label>
-                <input type="text" id="licenseName" name="licenceName" required>
+                <label for="holdingPersonName">Name:</label>
+                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
                 <label for="DOB">Date of issue:</label>
                 <input type="date" id="DOB" name="DOB" required>
                 <label for="expiry">Date of Expiry:</label>
@@ -80,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class='formContainer' id='pan'>
                 <label for="documentNumber">PAN Card Number:</label>
                 <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="PanName">Name:</label>
-                <input type="text" id="PanName" name="PanName" required>
+                <label for="holdingPersonName">Name:</label>
+                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
                 <label for="DOB">Date of Birth:</label>
                 <input type="date" id="DOB" name="DOB" required>
                 <label for="gender">Gender:</label>
@@ -109,11 +113,30 @@ document.addEventListener("DOMContentLoaded", function() {
             let cells = selectedRow.children;
             let documentType = cells[0].innerText.split(":")[1].trim();
             let documentNumber = cells[1].innerText.split(":")[1].trim();
+            let holdingPersonName = cells[2].innerText.split(":")[1].trim();
             documentTypeSelect.value = documentType;
             document.querySelector("#documentNumber").value = documentNumber;
+            document.querySelector("#holdingPersonName").value = holdingPersonName;
+
+            documentTypeSelect.dispatchEvent(new Event('change'));
         }
+        
+        if (event.target.classList.contains("view-btn")) {
+            let item = event.target.closest(".item");
+
+            let clonedItem = item.cloneNode(true);
+
+            let newWindow = window.open();
+            newWindow.document.body.appendChild(clonedItem);
+
+            newWindow.print();
+        }
+
     });
 });
+
+
+
 
 
 

@@ -40,11 +40,11 @@ section {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease; /* Added transition for hover effect */
+    transition: transform 0.3s ease;
 }
 
 .item:hover {
-    transform: translateY(-3px); /* Added hover effect */
+    transform: translateY(-3px); 
 }
 
 .item > div {
@@ -160,9 +160,9 @@ select {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .save-btn {
-    background-color: #ff6347; /* New color for the Save Details button */
-    /* You can adjust other styles as needed */
-    color: #fff; /* Text color */
+    background-color: #ff6347; 
+    
+    color: #fff; 
     border-radius: 4px;
     border: none;
     padding: 12px 16px;
@@ -172,7 +172,7 @@ select {
 }
 
 .save-btn:hover {
-    background-color: #ff4c2c; /* Adjusted color on hover */
+    background-color: #ff4c2c; 
 }
 @media screen and (max-width: 767px) {
     .formContainer {
