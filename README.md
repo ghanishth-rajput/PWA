@@ -1,5 +1,8 @@
 # PWA
 An app where people can use to securely store important documents like Aadhaar card, driving license, PAN card, and passport details on their phones, even without an internet connection. They should be able to view, edit, and save these details easily
+
+
+
 -> Details of pwa
 Offline Document Storage
 Overview
@@ -21,3 +24,9 @@ Development
 Technologies Used: HTML, CSS, JavaScript
 Libraries: No external libraries are used. The application utilizes vanilla JavaScript for functionality.
 Responsiveness: The application is responsive and can be used on various devices including desktops, tablets, and smartphones.
+
+
+
+FOR START : OPEN VS CODE 
+            Select GOLIVE option of vs code code will run on your local server
+
