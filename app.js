@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let documentTypeSelect = document.getElementById("documentType");
     const documentFieldsDiv = document.getElementById("documentFields");
     const container = document.querySelector(".container");
+    const savedDocumentsDiv = document.getElementById("savedDocuments");
     var selectedRow = null;
 
     documentForm.addEventListener("submit", function(event) {
@@ -123,16 +124,41 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (event.target.classList.contains("view-btn")) {
             let item = event.target.closest(".item");
+            let documentType = item.querySelector("div:nth-child(1)").textContent.split(":")[1].trim();
+            let documentNumber = item.querySelector("div:nth-child(2)").textContent.split(":")[1].trim();
+            let holdingPersonName = item.querySelector("div:nth-child(3)").textContent.split(":")[1].trim();
 
-            let clonedItem = item.cloneNode(true);
+            generateImage(documentType, documentNumber, holdingPersonName);
 
-            let newWindow = window.open();
-            newWindow.document.body.appendChild(clonedItem);
-
-            newWindow.print();
+           
         }
 
     });
+
+    function generateImage(documentType, documentNumber, holdingPersonName) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = 400;
+        canvas.height =200;
+
+        context.fillStyle = '#f88379';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.fillStyle = '#000';
+        context.font = '20px Arial';
+        context.fillText(`Document Type: ${documentType}`, 20, 40);
+        context.fillText(`Document Number: ${documentNumber}`, 20, 80);
+        context.fillText(`Holding Person's Name: ${holdingPersonName}`, 20, 120);
+
+        const image=canvas.toDataURL("image/png");
+
+        const newWindow = window.open();
+        newWindow.document.write('<img src="' + image + '" />');
+    }
+
+
+
+    
 });
 
 
