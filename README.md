@@ -19,6 +19,10 @@ View Document: Users can view a generated image containing the details of a part
 
 
 Technologies Used
+
+
+
+
 HTML
 CSS
 JavaScript
@@ -50,17 +54,12 @@ Steps to run
 
 
 Screenshots
-
-![Screenshot 2024-04-09 175540](https://github.com/ghanishth-rajput/PWA/assets/139054853/a4e8cff0-7cbf-49b3-a340-8e854be33788)
-![Screenshot 2024-04-09 175517](https://github.com/ghanishth-rajput/PWA/assets/139054853/f58431ca-4f85-4be7-abec-e58b9e1621c1)
-![Screenshot 2024-04-09 175504](https://github.com/ghanishth-rajput/PWA/assets/139054853/61d0736a-6e31-4911-929d-b7ab4c135ad0)
-![Screenshot 2024-04-09 175408](https://github.com/ghanishth-rajput/PWA/assets/139054853/f8d7e9fb-1e43-424a-95aa-08595670882d)
-![Screenshot 2024-04-02 041936](https://github.com/ghanishth-rajput/PWA/assets/139054853/a91272da-ed83-49de-be5f-cc9f8a1def44)
-![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/9e552bbe-3327-428d-9a4a-10e71ff6f162)
-![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/52b01e74-7456-4388-82b3-5952fc946ea6)
-![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/c9323590-dc71-45c6-a783-dd8f87050fc5)
-![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/a3768796-4abf-4a5b-9e94-582557e28c21)
-
-
-  
+![Screenshot 2024-04-02 041936](https://github.com/ghanishth-rajput/PWA/assets/139054853/4ebf01f6-3c8a-4865-bde9-3b9464421a0b)
+![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/a488e3c8-7ccb-4435-aad0-efbaf0a85603)
+![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/9699520a-3ce0-4ae0-8d84-8aacca15e96a)
+![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/957ed782-5834-4d4f-b34b-616d1246233d)
+![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/6157e9e3-2219-4ab6-9ddd-ada032ec2e46)
+![Screenshot 2024-04-16 031023](https://github.com/ghanishth-rajput/PWA/assets/139054853/b63ff555-b92c-4914-b246-324ae34bed4c)
+![Screenshot 2024-04-16 031159](https://github.com/ghanishth-rajput/PWA/assets/139054853/7563ce7f-c3c1-4131-b719-a6b153a794e1)
+![Screenshot 2024-04-16 031107](https://github.com/ghanishth-rajput/PWA/assets/139054853/42f55615-5f86-4f63-8f6d-a40440fd431b)
 
