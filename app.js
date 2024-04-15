@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let documentTypeSelect = document.getElementById("documentType");
     const documentFieldsDiv = document.getElementById("documentFields");
     const container = document.querySelector(".container");
-    const savedDocumentsDiv = document.getElementById("savedDocuments");
+    
     var selectedRow = null;
 
     documentForm.addEventListener("submit", function(event) {
@@ -138,23 +138,70 @@ document.addEventListener("DOMContentLoaded", function() {
     function generateImage(documentType, documentNumber, holdingPersonName) {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
-        canvas.width = 400;
-        canvas.height =200;
+        let canvasWidth = 600; 
+        let canvasHeight = 400;
 
-        context.fillStyle = '#f88379';
+        const backgroundImage = new Image();
+        let backgroundColor = '#ffe6e6'; 
+
+        
+        if (documentType === "drivingLicense") {
+            backgroundImage.src = 'e.webp';
+            backgroundColor = '#f0fff0'; 
+            canvasWidth = 800; 
+            canvasHeight = 400; 
+            console.log(backgroundImage.src);
+        } else if (documentType === "panCard") {
+            backgroundImage.src = 't.png';
+            backgroundColor = '#E0FFFF'; 
+            canvasWidth = 800; 
+            canvasHeight = 400; 
+        } else {
+            backgroundImage.src = 'q.jpg';
+        }
+    
+        
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+
+        context.fillStyle = backgroundColor;
         context.fillRect(0, 0, canvas.width, canvas.height);
+       
 
-        context.fillStyle = '#000';
-        context.font = '20px Arial';
-        context.fillText(`Document Type: ${documentType}`, 20, 40);
-        context.fillText(`Document Number: ${documentNumber}`, 20, 80);
-        context.fillText(`Holding Person's Name: ${holdingPersonName}`, 20, 120);
+
+        
+        backgroundImage.onload = function() {
+            const scaleFactor = Math.min(canvas.width / this.width, canvas.height / this.height);
+            const width = this.width * scaleFactor;
+            const height = this.height * scaleFactor;
+            const offsetX = (canvas.width - width) / 2;
+            const offsetY = (canvas.height - height) / 2;
+
+            context.drawImage(backgroundImage, offsetX, offsetY, width, height);
+
+            context.fillStyle = '#333'; 
+            context.font = 'bold 22px Arial'; 
+            context.textAlign = 'left'; 
+            
+            
+            context.fillText(`Document Type: ${documentType}`, 20, 50);
+            
+            
+            context.fillText(`Document Number: ${documentNumber}`, 20, 100);
+            
+            
+            context.fillText(`Holder's Name: ${holdingPersonName}`, 20, 150);
+
+  
 
         const image=canvas.toDataURL("image/png");
 
         const newWindow = window.open();
         newWindow.document.write('<img src="' + image + '" />');
-    }
+    };
+
+}
 
 
 
