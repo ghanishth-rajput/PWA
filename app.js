@@ -10,17 +10,21 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         let selectedDocumentType = documentTypeSelect.value;
-        let documentNumberInput = document.querySelector("#documentNumber");
-        let holdingPersonNameInput = document.querySelector("#holdingPersonName");
+        let documentNumberInput = documentForm.querySelector("#documentNumber_"+selectedDocumentType);
+        let holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_"+selectedDocumentType);
+        let DOBInput = documentForm.querySelector("#DOB_" + selectedDocumentType);
+
 
         let documentNumber = documentNumberInput.value;
         let holdingPersonName = holdingPersonNameInput.value;
+        let DOB = DOBInput.value;
 
         if (selectedRow) {
             let cells = selectedRow.children;
             cells[0].innerText = `Document type: ${selectedDocumentType}`;
             cells[1].innerText = `Document number: ${documentNumber}`;
             cells[2].innerText = `Holding Person's Name: ${holdingPersonName}`;
+            cells[3].innerText = `DOB: ${DOB}`;
         } else {
             let newEntry = document.createElement("div");
             newEntry.classList.add("item");
@@ -28,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div> Document type: ${selectedDocumentType}</div>
                 <div> Document number: ${documentNumber}</div>
                 <div> Holding Person's Name: ${holdingPersonName}</div>
+                <div> DOB: ${DOB}</div>
                 <div>
                     Action:
                     <button class="view-btn" type="button">View</button>
@@ -41,8 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         documentForm.reset();
         selectedRow = null;
-        
-        container.style.display = "block";
+        if (container.style.display === "none") {
+            container.style.display = "block";
+        }
     });
 
     documentTypeSelect.addEventListener("change", function() {
@@ -52,17 +58,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (selectedDocumentType === "aadhaar") {
             documentFieldsHTML = `
             <div class='formContainer' id='aadhar'>
-                <label for="documentNumber">Aadhaar Number:</label>
-                <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="holdingPersonName">Name:</label>
-                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
-                <label for="gender">Gender:</label>
+            <label for="documentNumber_${selectedDocumentType}">Aadhaar Number:</label>
+            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
+            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
+            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
                 <select id="gender" name="gender" required>
                     <option value="MALE">MALE</option>
                     <option value="FEMALE">FEMALE</option>
                 </select>
-                <label for="aadhaarDOB">Date of Birth:</label>
-                <input type="date" id="aadhaarDOB" name="aadhaarDOB" required>
+                <label for="DOB_${selectedDocumentType}">Date of Birth:</label>
+                <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
                 <label for="aadhaarAddress">Address:</label>
                 <textarea id="aadhaarAddress" name="aadhaarAddress" required></textarea>
                 
@@ -70,12 +75,12 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (selectedDocumentType === "drivingLicense") {
             documentFieldsHTML = `
             <div class='formContainer' id='driver'>
-                <label for="documentNumber">Driving License Number:</label>
-                <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="holdingPersonName">Name:</label>
-                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
-                <label for="DOB">Date of issue:</label>
-                <input type="date" id="DOB" name="DOB" required>
+            <label for="documentNumber_${selectedDocumentType}">Driving License Number:</label>
+            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
+            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
+            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
+            <label for="DOB_${selectedDocumentType}">Date of issue:</label>
+            <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
                 <label for="expiry">Date of Expiry:</label>
                 <input type="date" id="DOE" name="DOE" required>
                 
@@ -83,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (selectedDocumentType === "panCard") {
             documentFieldsHTML = `
             <div class='formContainer' id='pan'>
-                <label for="documentNumber">PAN Card Number:</label>
-                <input type="number" id="documentNumber" name="documentNumber" required>
-                <label for="holdingPersonName">Name:</label>
-                <input type="text" id="holdingPersonName" name="holdingPersonName" required>
-                <label for="DOB">Date of Birth:</label>
-                <input type="date" id="DOB" name="DOB" required>
+            <label for="documentNumber_${selectedDocumentType}">PAN Card Number:</label>
+            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
+            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
+            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
+            <label for="DOB_${selectedDocumentType}">Date of Birth:</label>
+            <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="MALE">MALE</option>
@@ -115,9 +120,14 @@ document.addEventListener("DOMContentLoaded", function() {
             let documentType = cells[0].innerText.split(":")[1].trim();
             let documentNumber = cells[1].innerText.split(":")[1].trim();
             let holdingPersonName = cells[2].innerText.split(":")[1].trim();
+            let DOB = cells[3].innerText.split(":")[1].trim();
+
             documentTypeSelect.value = documentType;
-            document.querySelector("#documentNumber").value = documentNumber;
-            document.querySelector("#holdingPersonName").value = holdingPersonName;
+            document.querySelector("#documentNumber_" + documentType).value = documentNumber;
+            document.querySelector("#holdingPersonName_" + documentType).value = holdingPersonName;
+            document.querySelector("#DOB_" + documentType).value = DOB;
+
+
 
             documentTypeSelect.dispatchEvent(new Event('change'));
         }
@@ -127,15 +137,16 @@ document.addEventListener("DOMContentLoaded", function() {
             let documentType = item.querySelector("div:nth-child(1)").textContent.split(":")[1].trim();
             let documentNumber = item.querySelector("div:nth-child(2)").textContent.split(":")[1].trim();
             let holdingPersonName = item.querySelector("div:nth-child(3)").textContent.split(":")[1].trim();
+            let DOB = item.querySelector("div:nth-child(4)").textContent.split(":")[1].trim();
 
-            generateImage(documentType, documentNumber, holdingPersonName);
+            generateImage(documentType, documentNumber, holdingPersonName,DOB);
 
            
         }
 
     });
 
-    function generateImage(documentType, documentNumber, holdingPersonName) {
+    function generateImage(documentType, documentNumber, holdingPersonName,DOB) {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         let canvasWidth = 600; 
@@ -192,6 +203,9 @@ document.addEventListener("DOMContentLoaded", function() {
             
             
             context.fillText(`Holder's Name: ${holdingPersonName}`, 20, 150);
+
+            context.fillText(`DOB: ${DOB}`, 20, 200);
+
 
   
 
