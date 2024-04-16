@@ -123,9 +123,20 @@ document.addEventListener("DOMContentLoaded", function() {
             let DOB = cells[3].innerText.split(":")[1].trim();
 
             documentTypeSelect.value = documentType;
-            document.querySelector("#documentNumber_" + documentType).value = documentNumber;
-            document.querySelector("#holdingPersonName_" + documentType).value = holdingPersonName;
-            document.querySelector("#DOB_" + documentType).value = DOB;
+
+            let documentNumberInput = documentForm.querySelector("#documentNumber_" + documentType);
+            if (documentNumberInput) {
+                documentNumberInput.value = documentNumber;
+            }
+            let holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + documentType);
+            if (holdingPersonNameInput) {
+                holdingPersonNameInput.value = holdingPersonName;
+            }
+  
+            let DOBInput = documentForm.querySelector("#DOB_" + documentType);
+            if (DOBInput) {
+                DOBInput.value = DOB;
+            }
 
 
 
