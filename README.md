@@ -54,14 +54,12 @@ Steps to run
 
 
 Screenshots
-
-![Screenshot 2024-04-02 041936](https://github.com/ghanishth-rajput/PWA/assets/139054853/bf37e2bf-3d35-4532-9c49-9266a0859b40)
-![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/33a4babb-49a7-4fa0-8292-db81db3edfae)
-![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/2daf1348-fe92-4cbc-92ef-ba480abdc34d)
-![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/2ed590ea-ee14-43e2-a5f3-c61cd5b253bc)
-![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/6b3d7a08-62cb-4d00-82a2-0392db181634)
-![Screenshot 2024-04-16 153611](https://github.com/ghanishth-rajput/PWA/assets/139054853/51c9d10d-c462-4c87-b5fb-236e6248b72b)
-![Screenshot 2024-04-16 160441](https://github.com/ghanishth-rajput/PWA/assets/139054853/c8b3a807-9abb-48e6-a4fe-05eb3a040102)
-![Screenshot 2024-04-16 160203](https://github.com/ghanishth-rajput/PWA/assets/139054853/da972766-b3e5-4373-9934-64f28848c5f5)
-![Screenshot 2024-04-16 160615](https://github.com/ghanishth-rajput/PWA/assets/139054853/df6b0bfc-7929-4a0f-b9e8-9887e2229b02)
+![Screenshot 2024-04-02 041936](https://github.com/ghanishth-rajput/PWA/assets/139054853/c267e9e1-a23b-4649-aa6f-ceb8291e0494)
+![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/5dc9ad87-a7fc-4248-b125-4de95de33ae8)
+![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/e491685d-58a8-4a1b-91f4-f87eaa96b42b)
+![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/15135d68-350d-43e1-9686-7fde0a419614)
+![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/e6743832-c730-4b19-b92d-f1d2f6a267b9)
+![Screenshot 2024-04-27 161830](https://github.com/ghanishth-rajput/PWA/assets/139054853/07886ddb-e9b5-4726-bcb6-1f24d8e0ddbb)
+![Screenshot 2024-04-27 161737](https://github.com/ghanishth-rajput/PWA/assets/139054853/f18a6544-d94e-4a0b-93b3-23b78d67d0bb)
+![Screenshot 2024-04-27 161643](https://github.com/ghanishth-rajput/PWA/assets/139054853/1710173e-9957-4090-b718-034881417ae8)
 
