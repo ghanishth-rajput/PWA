@@ -1,58 +1,76 @@
 document.addEventListener("DOMContentLoaded", ()=> {
-    let documentForm = document.getElementById("documentForm");
-    let documentTypeSelect = document.getElementById("documentType");
+    const documentForm = document.getElementById("documentForm");
+    const documentTypeSelect = document.getElementById("documentType");
     const documentFieldsDiv = document.getElementById("documentFields");
     const container = document.querySelector(".container");
     
     var selectedRow = null;
 
-    documentForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+    const  createNewEntry = (selectedDocumentType, documentNumber, holdingPersonName, DOB)=>{
+        const newEntry = document.createElement("div");
+        newEntry.classList.add("item");
+        newEntry.innerHTML = `
+            <div> Document type: ${selectedDocumentType}</div>
+            <div> Document number: ${documentNumber}</div>
+            <div> Holding Person's Name: ${holdingPersonName}</div>
+            <div> DOB: ${DOB}</div>
+            <div>
+                Action:
+                <button class="view-btn" type="button">View</button>
+                <button class="delete-btn" type="button">Delete</button>
+                <button class="edit-btn" type="button">Edit</button>
+            </div>
+        `;
+        container.appendChild(newEntry);
+    };
 
-        let selectedDocumentType = documentTypeSelect.value;
-        let documentNumberInput = documentForm.querySelector("#documentNumber_"+selectedDocumentType);
-        let holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_"+selectedDocumentType);
-        let DOBInput = documentForm.querySelector("#DOB_" + selectedDocumentType);
+    const updateEntry = (cells, selectedDocumentType, documentNumber, holdingPersonName, DOB) => {
+        cells[0].innerText = `Document type: ${selectedDocumentType}`;
+        cells[1].innerText = `Document number: ${documentNumber}`;
+        cells[2].innerText = `Holding Person's Name: ${holdingPersonName}`;
+        cells[3].innerText = `DOB: ${DOB}`;
+    };
 
-
-        let documentNumber = documentNumberInput.value;
-        let holdingPersonName = holdingPersonNameInput.value;
-        let DOB = DOBInput.value;
-
-        if (selectedRow) {
-            let cells = selectedRow.children;
-            cells[0].innerText = `Document type: ${selectedDocumentType}`;
-            cells[1].innerText = `Document number: ${documentNumber}`;
-            cells[2].innerText = `Holding Person's Name: ${holdingPersonName}`;
-            cells[3].innerText = `DOB: ${DOB}`;
-        } else {
-            let newEntry = document.createElement("div");
-            newEntry.classList.add("item");
-            newEntry.innerHTML = `
-                <div> Document type: ${selectedDocumentType}</div>
-                <div> Document number: ${documentNumber}</div>
-                <div> Holding Person's Name: ${holdingPersonName}</div>
-                <div> DOB: ${DOB}</div>
-                <div>
-                    Action:
-                    <button class="view-btn" type="button">View</button>
-                    <button class="delete-btn" type="button">Delete</button>
-                    <button class="edit-btn" type="button">Edit</button>
-                </div>
-            `;
-
-            container.appendChild(newEntry);
-        }
-
+    const resetForm = () => {
         documentForm.reset();
         selectedRow = null;
         if (container.style.display === "none") {
             container.style.display = "block";
         }
+    };
+
+    
+
+
+
+    documentForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const selectedDocumentType = documentTypeSelect.value;
+        const documentNumberInput = documentForm.querySelector("#documentNumber_"+selectedDocumentType);
+        const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_"+selectedDocumentType);
+        const DOBInput = documentForm.querySelector("#DOB_" + selectedDocumentType);
+       
+
+
+
+        const documentNumber = documentNumberInput.value;
+        const holdingPersonName = holdingPersonNameInput.value;
+        const DOB = DOBInput.value;
+
+        if (selectedRow) {
+            const cells = selectedRow.children;
+            updateEntry(cells, selectedDocumentType, documentNumber, holdingPersonName, DOB);
+           
+        } else {
+            createNewEntry(selectedDocumentType, documentNumber, holdingPersonName, DOB);
+        }
+        resetForm();
+
     });
 
     documentTypeSelect.addEventListener("change", () => {
-        let selectedDocumentType = documentTypeSelect.value;
+        const selectedDocumentType = documentTypeSelect.value;
         var documentFieldsHTML = "";
 
         if (selectedDocumentType === "aadhaar") {
@@ -110,7 +128,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     container.addEventListener("click", (event) => {
         if (event.target.classList.contains("delete-btn")) {
-            let item = event.target.closest(".item");
+            const item = event.target.closest(".item");
             item.remove();
         }
 
@@ -124,16 +142,16 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
             documentTypeSelect.value = documentType;
 
-            let documentNumberInput = documentForm.querySelector("#documentNumber_" + documentType);
+            const documentNumberInput = documentForm.querySelector("#documentNumber_" + documentType);
             if (documentNumberInput) {
                 documentNumberInput.value = documentNumber;
             }
-            let holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + documentType);
+            const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + documentType);
             if (holdingPersonNameInput) {
                 holdingPersonNameInput.value = holdingPersonName;
             }
   
-            let DOBInput = documentForm.querySelector("#DOB_" + documentType);
+            const DOBInput = documentForm.querySelector("#DOB_" + documentType);
             if (DOBInput) {
                 DOBInput.value = DOB;
             }
@@ -144,11 +162,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }
         
         if (event.target.classList.contains("view-btn")) {
-            let item = event.target.closest(".item");
-            let documentType = item.querySelector("div:nth-child(1)").textContent.split(":")[1].trim();
-            let documentNumber = item.querySelector("div:nth-child(2)").textContent.split(":")[1].trim();
-            let holdingPersonName = item.querySelector("div:nth-child(3)").textContent.split(":")[1].trim();
-            let DOB = item.querySelector("div:nth-child(4)").textContent.split(":")[1].trim();
+            const item = event.target.closest(".item");
+            const documentType = item.querySelector("div:nth-child(1)").textContent.split(":")[1].trim();
+            const documentNumber = item.querySelector("div:nth-child(2)").textContent.split(":")[1].trim();
+            const holdingPersonName = item.querySelector("div:nth-child(3)").textContent.split(":")[1].trim();
+            const DOB = item.querySelector("div:nth-child(4)").textContent.split(":")[1].trim();
 
             generateImage(documentType, documentNumber, holdingPersonName,DOB);
 
