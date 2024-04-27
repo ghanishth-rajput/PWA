@@ -53,13 +53,13 @@ Steps to run
 
 
 
-Screenshots
-![Screenshot 2024-04-02 041936](https://github.com/ghanishth-rajput/PWA/assets/139054853/c267e9e1-a23b-4649-aa6f-ceb8291e0494)
-![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/5dc9ad87-a7fc-4248-b125-4de95de33ae8)
-![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/e491685d-58a8-4a1b-91f4-f87eaa96b42b)
-![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/15135d68-350d-43e1-9686-7fde0a419614)
-![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/e6743832-c730-4b19-b92d-f1d2f6a267b9)
-![Screenshot 2024-04-27 161830](https://github.com/ghanishth-rajput/PWA/assets/139054853/07886ddb-e9b5-4726-bcb6-1f24d8e0ddbb)
-![Screenshot 2024-04-27 161737](https://github.com/ghanishth-rajput/PWA/assets/139054853/f18a6544-d94e-4a0b-93b3-23b78d67d0bb)
-![Screenshot 2024-04-27 161643](https://github.com/ghanishth-rajput/PWA/assets/139054853/1710173e-9957-4090-b718-034881417ae8)
+Screenshots![Screenshot 2024-04-28 012212](https://github.com/ghanishth-rajput/PWA/assets/139054853/cb12756a-69fc-498d-89c9-d678b8553222)
+![Screenshot 2024-04-28 012134](https://github.com/ghanishth-rajput/PWA/assets/139054853/e7048cd2-5761-41d1-a16d-b4e9735f920a)
+![Screenshot 2024-04-28 012056](https://github.com/ghanishth-rajput/PWA/assets/139054853/4244df7a-69b2-4a04-83b1-dc774f15f94f)
+![Screenshot 2024-04-28 012643](https://github.com/ghanishth-rajput/PWA/assets/139054853/99bff026-0b95-4b82-9cb3-040a545cac1f)
+![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/8ed3c67b-a4f2-4a2e-a590-49d66676dbb3)
+![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/fd8a2265-e36f-45ac-8b0f-9e7627fe57fd)
+![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/fc8c1b53-ed34-4441-b2ff-70d848700310)
+![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/46de81c0-0e28-42ad-ad8e-c8e52a29fdc8)
+
 
