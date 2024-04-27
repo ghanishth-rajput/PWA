@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", ()=> {
     let documentForm = document.getElementById("documentForm");
     let documentTypeSelect = document.getElementById("documentType");
     const documentFieldsDiv = document.getElementById("documentFields");
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var selectedRow = null;
 
-    documentForm.addEventListener("submit", function(event) {
+    documentForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         let selectedDocumentType = documentTypeSelect.value;
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    documentTypeSelect.addEventListener("change", function() {
-        let selectedDocumentType = this.value;
+    documentTypeSelect.addEventListener("change", () => {
+        let selectedDocumentType = documentTypeSelect.value;
         var documentFieldsHTML = "";
 
         if (selectedDocumentType === "aadhaar") {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
         documentFieldsDiv.style.display = "block";
     });
 
-    container.addEventListener("click", function(event) {
+    container.addEventListener("click", (event) => {
         if (event.target.classList.contains("delete-btn")) {
             let item = event.target.closest(".item");
             item.remove();
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    function generateImage(documentType, documentNumber, holdingPersonName,DOB) {
+    const generateImage =(documentType, documentNumber, holdingPersonName,DOB) => {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         let canvasWidth = 600; 
@@ -193,10 +193,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         
-        backgroundImage.onload = function() {
-            const scaleFactor = Math.min(canvas.width / this.width, canvas.height / this.height);
-            const width = this.width * scaleFactor;
-            const height = this.height * scaleFactor;
+        backgroundImage.onload = () => {
+            const scaleFactor = Math.min(canvas.width / backgroundImage.width, canvas.height / backgroundImage.height);
+            const width = backgroundImage.width * scaleFactor;
+            const height = backgroundImage.height * scaleFactor;
             const offsetX = (canvas.width - width) / 2;
             const offsetY = (canvas.height - height) / 2;
 
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function() {
         newWindow.document.write('<img src="' + image + '" />');
     };
 
-}
+};
 
 
 
