@@ -205,17 +205,23 @@ document.addEventListener("DOMContentLoaded", function() {
             context.fillStyle = '#333'; 
             context.font = 'bold 22px Arial'; 
             context.textAlign = 'left'; 
-            
-            
-            context.fillText(`Document Type: ${documentType}`, 20, 50);
-            
-            
-            context.fillText(`Document Number: ${documentNumber}`, 20, 100);
-            
-            
-            context.fillText(`Holder's Name: ${holdingPersonName}`, 20, 150);
 
-            context.fillText(`DOB: ${DOB}`, 20, 200);
+            let text = '';
+            if (documentType === "aadhaar") {
+                text = `--Aadhaar Card--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+            } else if (documentType === "drivingLicense") {
+                text = `--Driving License--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+            } else if (documentType === "panCard") {
+                text = `--PAN Card--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+            }
+
+            const lines = text.split('\n');
+        lines.forEach((line, index) => {
+            context.fillText(line, 20, 50 + index * 50);
+        });
+            
+            
+            
 
 
   
