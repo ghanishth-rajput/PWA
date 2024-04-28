@@ -52,14 +52,11 @@ Steps to run
 
 
 
-
-Screenshots![Screenshot 2024-04-28 012212](https://github.com/ghanishth-rajput/PWA/assets/139054853/cb12756a-69fc-498d-89c9-d678b8553222)
-![Screenshot 2024-04-28 012134](https://github.com/ghanishth-rajput/PWA/assets/139054853/e7048cd2-5761-41d1-a16d-b4e9735f920a)
-![Screenshot 2024-04-28 012056](https://github.com/ghanishth-rajput/PWA/assets/139054853/4244df7a-69b2-4a04-83b1-dc774f15f94f)
-![Screenshot 2024-04-28 012643](https://github.com/ghanishth-rajput/PWA/assets/139054853/99bff026-0b95-4b82-9cb3-040a545cac1f)
-![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/8ed3c67b-a4f2-4a2e-a590-49d66676dbb3)
-![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/fd8a2265-e36f-45ac-8b0f-9e7627fe57fd)
-![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/fc8c1b53-ed34-4441-b2ff-70d848700310)
-![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/46de81c0-0e28-42ad-ad8e-c8e52a29fdc8)
-
+![Screenshot 2024-04-02 041736](https://github.com/ghanishth-rajput/PWA/assets/139054853/76df8216-0cf7-4f52-92ad-77f660c371fa)
+![Screenshot 2024-04-02 041709](https://github.com/ghanishth-rajput/PWA/assets/139054853/1763ce67-c8af-4ef5-9abe-f76c9b9ef114)
+![Screenshot 2024-04-02 041619](https://github.com/ghanishth-rajput/PWA/assets/139054853/c8c005a8-5611-4a4c-8c53-f35aa58f33fe)
+![Screenshot 2024-04-02 041548](https://github.com/ghanishth-rajput/PWA/assets/139054853/f5828e30-b9bb-4e41-ad57-9c286c61c584)
+![Screenshot 2024-04-28 012643](https://github.com/ghanishth-rajput/PWA/assets/139054853/048c940a-100c-46f8-9c29-1c42024fd90a)
+![Screenshot 2024-04-28 184932](https://github.com/ghanishth-rajput/PWA/assets/139054853/d83364db-1d38-496d-8c19-51322bcb9b96)
+![Screenshot 2024-04-28 185020](https://github.com/ghanishth-rajput/PWA/assets/139054853/5943b887-6a4b-4ed4-bdac-86db51206d96)
 
