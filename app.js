@@ -188,14 +188,14 @@ document.addEventListener("DOMContentLoaded", ()=> {
         if (documentType === "drivingLicense") {
             backgroundImage.src = 'th (2).jpg';
             backgroundColor = '#F4A460'; 
-            canvasWidth = 800; 
-            canvasHeight = 400; 
+            canvasWidth = 500; 
+            canvasHeight = 300; 
             console.log(backgroundImage.src);
         } else if (documentType === "panCard") {
             backgroundImage.src = 'th (1).jpg';
             backgroundColor = 'FFFAFA'; 
-            canvasWidth = 800; 
-            canvasHeight = 400; 
+            canvasWidth = 500; 
+            canvasHeight = 300; 
         } else {
             backgroundImage.src = 'q.jpg';
         }
@@ -236,10 +236,19 @@ document.addEventListener("DOMContentLoaded", ()=> {
             }
 
             const lines = text.split('\n');
-        lines.forEach((line, index) => {
-            context.fillText(line, 20, 50 + index * 50);
-        });
-            
+            lines.forEach((line, index) => {
+                if (line.includes('Name:')) {
+                
+                    const nameIndex = line.indexOf('Name:') + 6;
+                    const name = line.substring(nameIndex);
+                    context.font = 'italic bold 22px Arial';
+                    context.fillText(`Name: ${name}`, 20, 50 + index * 50);
+                } else {
+                    context.fillText(line, 20, 50 + index * 50);
+                }
+            });
+       
+       
             
             
 
