@@ -186,14 +186,14 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
         
         if (documentType === "drivingLicense") {
-            backgroundImage.src = 'e.webp';
-            backgroundColor = '#f0fff0'; 
+            backgroundImage.src = 'th (2).jpg';
+            backgroundColor = '#F4A460'; 
             canvasWidth = 800; 
             canvasHeight = 400; 
             console.log(backgroundImage.src);
         } else if (documentType === "panCard") {
-            backgroundImage.src = 't.png';
-            backgroundColor = '#E0FFFF'; 
+            backgroundImage.src = 'th (1).jpg';
+            backgroundColor = 'FFFAFA'; 
             canvasWidth = 800; 
             canvasHeight = 400; 
         } else {
@@ -224,13 +224,15 @@ document.addEventListener("DOMContentLoaded", ()=> {
             context.font = 'bold 22px Arial'; 
             context.textAlign = 'left'; 
 
+            const formattedDOB = formatDOB(DOB);
+
             let text = '';
             if (documentType === "aadhaar") {
-                text = `--Aadhaar Card--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+                text = `--Aadhaar Card--\n#: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${formattedDOB}`;
             } else if (documentType === "drivingLicense") {
-                text = `--Driving License--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+                text = `--Driving License--\n#: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${formattedDOB}`;
             } else if (documentType === "panCard") {
-                text = `--PAN Card--\nDocument number: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${DOB}`;
+                text = `--PAN Card--\n#: ${documentNumber}\nName: ${holdingPersonName}\nDOB: ${formattedDOB}`;
             }
 
             const lines = text.split('\n');
@@ -251,11 +253,19 @@ document.addEventListener("DOMContentLoaded", ()=> {
     };
 
 };
-
+const formatDOB = (DOB) => {
+    const parts = DOB.split('-');
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
 
 
     
 });
+
+
+
+    
+
 
 
 
