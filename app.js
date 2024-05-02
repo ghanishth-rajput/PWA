@@ -1,179 +1,164 @@
-document.addEventListener("DOMContentLoaded", ()=> {
+
     const documentForm = document.getElementById("documentForm");
     const documentTypeSelect = document.getElementById("documentType");
     const documentFieldsDiv = document.getElementById("documentFields");
     const container = document.querySelector(".container");
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
     
-    var selectedRow = null;
+        const selectedDocumentType = documentTypeSelect.value;
+        const documentNumberInput = documentForm.querySelector("#documentNumber_" + selectedDocumentType);
+        const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + selectedDocumentType);
+        const DOBInput = documentForm.querySelector("#DOB_" + selectedDocumentType);
+    
+        const documentNumber = documentNumberInput.value;
+        const holdingPersonName = holdingPersonNameInput.value;
+        const DOB = DOBInput.value;
+    
+        createNewEntry(selectedDocumentType, documentNumber, holdingPersonName, DOB);
+        resetForm();
+    };
+    
+    documentForm.addEventListener("submit", handleSubmit);
+
 
     const  createNewEntry = (selectedDocumentType, documentNumber, holdingPersonName, DOB)=>{
-        const newEntry = document.createElement("div");
-        newEntry.classList.add("item");
-        newEntry.innerHTML = `
-            <div> Document type: ${selectedDocumentType}</div>
-            <div> Document number: ${documentNumber}</div>
-            <div> Holding Person's Name: ${holdingPersonName}</div>
-            <div> DOB: ${DOB}</div>
-            <div>
-                Action:
-                <button class="view-btn" type="button">View</button>
-                <button class="delete-btn" type="button">Delete</button>
-                <button class="edit-btn" type="button">Edit</button>
-            </div>
-        `;
-        container.appendChild(newEntry);
-    };
-
-    const updateEntry = (cells, selectedDocumentType, documentNumber, holdingPersonName, DOB) => {
-        cells[0].innerText = `Document type: ${selectedDocumentType}`;
-        cells[1].innerText = `Document number: ${documentNumber}`;
-        cells[2].innerText = `Holding Person's Name: ${holdingPersonName}`;
-        cells[3].innerText = `DOB: ${DOB}`;
+        const tableBody = document.querySelector(".container");
+        
+    tableBody.insertAdjacentHTML('beforeend', `
+    <div class="item">
+        <div># ${selectedDocumentType}</div>
+        <div> ${documentNumber}</div>
+        <div> ${holdingPersonName}</div>
+        <div> ${DOB}</div>
+        <div>
+            <button class="view-btn" type="button">View</button>
+            <button class="delete-btn" type="button">Delete</button>
+            <button class="edit-btn" type="button">Edit</button>
+        </div>
+    </div>
+`);
     };
 
     const resetForm = () => {
         documentForm.reset();
-        selectedRow = null;
-        if (container.style.display === "none") {
-            container.style.display = "block";
-        }
     };
 
-    
-
-
-
-    documentForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const selectedDocumentType = documentTypeSelect.value;
-        const documentNumberInput = documentForm.querySelector("#documentNumber_"+selectedDocumentType);
-        const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_"+selectedDocumentType);
-        const DOBInput = documentForm.querySelector("#DOB_" + selectedDocumentType);
-       
-
-
-
-        const documentNumber = documentNumberInput.value;
-        const holdingPersonName = holdingPersonNameInput.value;
-        const DOB = DOBInput.value;
-
-        if (selectedRow) {
-            const cells = selectedRow.children;
-            updateEntry(cells, selectedDocumentType, documentNumber, holdingPersonName, DOB);
-           
-        } else {
-            createNewEntry(selectedDocumentType, documentNumber, holdingPersonName, DOB);
-        }
-        resetForm();
-
-    });
-
-    documentTypeSelect.addEventListener("change", () => {
-        const selectedDocumentType = documentTypeSelect.value;
-        var documentFieldsHTML = "";
-
-        if (selectedDocumentType === "aadhaar") {
-            documentFieldsHTML = `
+    const populateAadhaarFields = () => {
+        return `
             <div class='formContainer' id='aadhar'>
-            <label for="documentNumber_${selectedDocumentType}">Aadhaar Number:</label>
-            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
-            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
-            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
+                <label for="documentNumber_aadhaar">Aadhaar Number:</label>
+                <input type="number" id="documentNumber_aadhaar" name="documentNumber" required>
+                <label for="holdingPersonName_aadhaar">Name:</label>
+                <input type="text" id="holdingPersonName_aadhaar" name="holdingPersonName" required>
                 <select id="gender" name="gender" required>
                     <option value="MALE">MALE</option>
                     <option value="FEMALE">FEMALE</option>
                 </select>
-                <label for="DOB_${selectedDocumentType}">Date of Birth:</label>
-                <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
+                <label for="DOB_aadhaar">Date of Birth:</label>
+                <input type="date" id="DOB_aadhaar" name="DOB" required>
                 <label for="aadhaarAddress">Address:</label>
                 <textarea id="aadhaarAddress" name="aadhaarAddress" required></textarea>
-                
             `;
-        } else if (selectedDocumentType === "drivingLicense") {
-            documentFieldsHTML = `
+    };
+    const populateDrivingLicenseFields = () => {
+        return `
             <div class='formContainer' id='driver'>
-            <label for="documentNumber_${selectedDocumentType}">Driving License Number:</label>
-            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
-            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
-            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
-            <label for="DOB_${selectedDocumentType}">Date of issue:</label>
-            <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
+                <label for="documentNumber_drivingLicense">Driving License Number:</label>
+                <input type="number" id="documentNumber_drivingLicense" name="documentNumber" required>
+                <label for="holdingPersonName_drivingLicense">Name:</label>
+                <input type="text" id="holdingPersonName_drivingLicense" name="holdingPersonName" required>
+                <label for="DOB_drivingLicense">Date of issue:</label>
+                <input type="date" id="DOB_drivingLicense" name="DOB" required>
                 <label for="expiry">Date of Expiry:</label>
                 <input type="date" id="DOE" name="DOE" required>
-                
             `;
-        } else if (selectedDocumentType === "panCard") {
-            documentFieldsHTML = `
+    };
+    const populatePanCardFields = () => {
+        return `
             <div class='formContainer' id='pan'>
-            <label for="documentNumber_${selectedDocumentType}">PAN Card Number:</label>
-            <input type="number" id="documentNumber_${selectedDocumentType}" name="documentNumber" required>
-            <label for="holdingPersonName_${selectedDocumentType}">Name:</label>
-            <input type="text" id="holdingPersonName_${selectedDocumentType}" name="holdingPersonName" required>
-            <label for="DOB_${selectedDocumentType}">Date of Birth:</label>
-            <input type="date" id="DOB_${selectedDocumentType}" name="DOB" required>
+                <label for="documentNumber_panCard">PAN Card Number:</label>
+                <input type="number" id="documentNumber_panCard" name="documentNumber" required>
+                <label for="holdingPersonName_panCard">Name:</label>
+                <input type="text" id="holdingPersonName_panCard" name="holdingPersonName" required>
+                <label for="DOB_panCard">Date of Birth:</label>
+                <input type="date" id="DOB_panCard" name="DOB" required>
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="MALE">MALE</option>
                     <option value="FEMALE">FEMALE</option>
                 </select>
-                
             `;
-        }
+    };
 
-        
-        documentFieldsDiv.innerHTML = documentFieldsHTML;
+    
+
+
+
+    documentTypeSelect.addEventListener("change", () => {
+        const selectedDocumentType = documentTypeSelect.value;
+        let documentFieldsHTML = "";
+
+        if (selectedDocumentType === "aadhaar") {
+            documentFieldsHTML = populateAadhaarFields();
+        } else if (selectedDocumentType === "drivingLicense") {
+            documentFieldsHTML = populateDrivingLicenseFields();
+        } else if (selectedDocumentType === "panCard") {
+            documentFieldsHTML = populatePanCardFields();
+        }
+     documentFieldsDiv.innerHTML = documentFieldsHTML;
         documentFieldsDiv.style.display = "block";
     });
 
     container.addEventListener("click", (event) => {
         if (event.target.classList.contains("delete-btn")) {
-            const item = event.target.closest(".item");
-            item.remove();
+            deleteItem(event);
+        } else if (event.target.classList.contains("edit-btn")) {
+            editItem(event);
+        } else if (event.target.classList.contains("view-btn")) {
+            viewItem(event);
         }
-
-        if (event.target.classList.contains("edit-btn")) {
-            selectedRow = event.target.closest(".item");
-            let cells = selectedRow.children;
-            let documentType = cells[0].innerText.split(":")[1].trim();
-            let documentNumber = cells[1].innerText.split(":")[1].trim();
-            let holdingPersonName = cells[2].innerText.split(":")[1].trim();
-            let DOB = cells[3].innerText.split(":")[1].trim();
-
-            documentTypeSelect.value = documentType;
-
-            const documentNumberInput = documentForm.querySelector("#documentNumber_" + documentType);
-            if (documentNumberInput) {
-                documentNumberInput.value = documentNumber;
-            }
-            const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + documentType);
-            if (holdingPersonNameInput) {
-                holdingPersonNameInput.value = holdingPersonName;
-            }
-  
-            const DOBInput = documentForm.querySelector("#DOB_" + documentType);
-            if (DOBInput) {
-                DOBInput.value = DOB;
-            }
-
-
-
-            documentTypeSelect.dispatchEvent(new Event('change'));
-        }
-        
-        if (event.target.classList.contains("view-btn")) {
-            const item = event.target.closest(".item");
-            const documentType = item.querySelector("div:nth-child(1)").textContent.split(":")[1].trim();
-            const documentNumber = item.querySelector("div:nth-child(2)").textContent.split(":")[1].trim();
-            const holdingPersonName = item.querySelector("div:nth-child(3)").textContent.split(":")[1].trim();
-            const DOB = item.querySelector("div:nth-child(4)").textContent.split(":")[1].trim();
-
-            generateImage(documentType, documentNumber, holdingPersonName,DOB);
-
-           
-        }
-
     });
+
+    const deleteItem = (event) => {
+        const item = event.target.closest(".item");
+        item.remove();
+    };
+    const editItem = (event) => {
+        const item = event.target.closest(".item");
+        const documentType = item.querySelector("div:nth-child(1)").textContent.split("#")[1].trim();
+        const documentNumber = item.querySelector("div:nth-child(2)").textContent.trim();
+        const holdingPersonName = item.querySelector("div:nth-child(3)").textContent.trim();
+        const DOB = item.querySelector("div:nth-child(4)").textContent.trim();
+
+        documentTypeSelect.value = documentType;
+        const documentNumberInput = documentForm.querySelector("#documentNumber_" + documentType);
+        if (documentNumberInput) {
+            documentNumberInput.value = documentNumber;
+        }
+        const holdingPersonNameInput = documentForm.querySelector("#holdingPersonName_" + documentType);
+        if (holdingPersonNameInput) {
+            holdingPersonNameInput.value = holdingPersonName;
+        }
+        const DOBInput = documentForm.querySelector("#DOB_" + documentType);
+        if (DOBInput) {
+            DOBInput.value = DOB;
+        }
+    
+        documentTypeSelect.dispatchEvent(new Event('change'));
+    
+    };
+    const viewItem = (event) => {
+        const item = event.target.closest(".item");
+    const documentType = item.querySelector("div:nth-child(1)").textContent.split("#")[1].trim();
+    const documentNumber = item.querySelector("div:nth-child(2)").textContent.trim();
+    const holdingPersonName = item.querySelector("div:nth-child(3)").textContent.trim();
+    const DOB = item.querySelector("div:nth-child(4)").textContent.trim();
+
+    generateImage(documentType, documentNumber, holdingPersonName, DOB);
+    };
 
     const generateImage =(documentType, documentNumber, holdingPersonName,DOB) => {
         const canvas = document.createElement('canvas');
@@ -269,7 +254,6 @@ const formatDOB = (DOB) => {
 
 
     
-});
 
 
 
