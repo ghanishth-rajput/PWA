@@ -1,5 +1,4 @@
-
-                                                                                                        Offline Document Storage
+# SafeDocs
                                                                                                      
                                                                                                      
                                                                                                      
