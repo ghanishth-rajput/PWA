@@ -140,9 +140,9 @@ select {
 #pan {
     padding: 20px;
     border: 2px solid #007bff;
-    background: rgba(0, 123, 255, 0.1);
+    background: rgba(150, 196, 225, 0.1);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(243, 241, 241, 0.1);
 }
   #aadhar {
     padding: 20px;
